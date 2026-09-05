@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import axios from "axios";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 function App() {
     const [message, setMessage] = useState("");
@@ -250,7 +252,9 @@ function App() {
                                     </div>
 
                                     <div className="message-text">
-                                        {msg.content}
+                                        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                                            {msg.content}
+                                        </ReactMarkdown>
                                     </div>
 
                                 </div>
